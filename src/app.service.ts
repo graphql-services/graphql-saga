@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { resolveThunk } from 'ts-thunk';
 import { GraphQLClient } from 'graphql-request';
-import { ENV } from 'env';
 
+import { ENV } from './env';
 import { SagaService } from './saga/saga.service';
 import { PubSubFactory } from './pubsub/pubsub.factory';
 import { PubSubService } from './pubsub/pubsub.service';
@@ -47,7 +47,7 @@ export class AppService {
         }
       }
     }
-  };
+  }
 
   private handleUpdateRequest = async (
     updateRequest: ISagaUpdateRequest,
@@ -69,5 +69,5 @@ export class AppService {
     } catch (err) {
       global.console.log('failed to handle update request', updateRequest, err);
     }
-  };
+  }
 }
